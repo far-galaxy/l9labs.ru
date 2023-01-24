@@ -9,7 +9,7 @@ def index():
     return send_file("index.html")
 
 # Files
-keywords = {'js', 'media', 'robots.txt', 'favicon.ico', '.html'}
+keywords = {'js', 'media', 'robots', 'favicon', 'html'}
 
 @app.route('/<path:path>', methods=['GET'])
 def get_files(path):
