@@ -3,4 +3,5 @@ l9env
 settings
 gunicorn.sock
 logs
-stuff
+stuff/media
+stuff/videos

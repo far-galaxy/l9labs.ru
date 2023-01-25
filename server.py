@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import *
+from utils import *
 
 app = Flask(__name__)
 
@@ -8,8 +9,25 @@ app = Flask(__name__)
 def index():
     return send_file("index.html")
 
+
+# Stuff page
+@app.route("/stuff")
+def stuff_index():
+    page = request.args.get('page')
+    if page == None:
+        return send_file("stuff/index.html")
+    else:
+        return send_file("stuff/video.html")
+
+
+@app.route("/stuff/index.json")
+def stuff_index_json():
+    return get_stuff_index()
+
+
 # Files
-keywords = {'js', 'media', 'robots', 'favicon', 'html'}
+keywords = {'css', 'js', 'media', 'robots', 'favicon', 'html'}
+
 
 @app.route('/<path:path>', methods=['GET'])
 def get_files(path):
